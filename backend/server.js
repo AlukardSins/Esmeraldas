@@ -44,7 +44,7 @@ const server = app.listen(port, () => {
 
 // Find 404 and hand over to error handler
 app.use((req, res, next) => {
-  next(res.status(404).send('Se chingo esta mierda'))
+  next(res.status(404))
 })
 
 // error handler
