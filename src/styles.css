@@ -19,6 +19,7 @@ body {
 }
 .mat-nav-list .mat-list-item {
   font-size: 15px;
+  color: rgba(31, 123, 45, .8);
 }
 .nav-tool-items {
   display: inline-block;
