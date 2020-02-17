@@ -31,7 +31,8 @@ import { ListEmeraldComponent } from './components/emerald/list/list.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularMaterialModule
   ],
   providers: [],
   bootstrap: [
