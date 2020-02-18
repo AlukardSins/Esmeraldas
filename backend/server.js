@@ -9,7 +9,10 @@ const dataBaseConfig = require('./database/db')
 mongoose.Promise = global.Promise
 mongoose
   .connect(dataBaseConfig.db, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+    useUnifiedTopology: true
   })
   .then(
     () => {
