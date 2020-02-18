@@ -25,9 +25,9 @@ const routes: Routes = [
   { path: 'worker/list', component: ListWorkerComponent },
 
   //  Emerald
-  { path: 'emerald/add', component: AddWorkerComponent },
-  { path: 'emerald/edit', component: EditWorkerComponent },
-  { path: 'emerald/list', component: ListWorkerComponent }
+  { path: 'emerald/add', component: AddEmeraldComponent },
+  { path: 'emerald/edit', component: EditEmeraldComponent },
+  { path: 'emerald/list', component: ListEmeraldComponent }
 ]
 
 @NgModule({

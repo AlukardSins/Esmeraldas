@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "Esmeraldas"
+  "defaultProject": "Esmeraldas",
+  "cli": {
+    "analytics": false
+  }
 }

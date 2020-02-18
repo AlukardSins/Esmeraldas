@@ -23,6 +23,10 @@ import { AddEmeraldComponent } from './components/emerald/add/add.component'
 import { EditEmeraldComponent } from './components/emerald/edit/edit.component'
 import { ListEmeraldComponent } from './components/emerald/list/list.component'
 
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,

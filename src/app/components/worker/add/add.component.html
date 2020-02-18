@@ -1,6 +1,6 @@
 <!-- Title group  -->
 <div class="title-group">
-  <h1 class="mat-h1">Añadir Trabajador</h1>
+  <h1 class="mat-h1"><span>Añadir trabajador</span></h1>
   <mat-divider fxFlex="1 0"></mat-divider>
 </div>
 
@@ -13,16 +13,16 @@
 
         <!-- Name -->
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Nombre Completo del Trabajador" formControlName="fullName">
+          <input matInput placeholder="Nombre Completo del trabajador" formControlName="fullName">
           <mat-error *ngIf="handleError('fullName', 'required')">
-            Debes introducir el <strong>Nombre completo</strong> del Trabajador.
+            Debes introducir el <strong>Nombre completo</strong> del trabajador.
           </mat-error>
         </mat-form-field>
       </div>
 
       <!-- Gender -->
       <div class="misc-bottom-padding">
-        <mat-label>Genero:</mat-label>
+        <mat-label>Género:</mat-label>
         <mat-radio-group aria-label="Selecciona una opcion" formControlName="gender">
           <mat-radio-button value="Male">Hombre</mat-radio-button>
           <mat-radio-button value="Female">Mujer</mat-radio-button>
