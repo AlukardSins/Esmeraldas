@@ -15,7 +15,7 @@ const Worker = new Schema({
   },
   emeraldsMined: {
     type: [
-      String
+      Schema.Types.ObjectId
     ]
   }
 })

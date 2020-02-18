@@ -6,10 +6,12 @@ const emeraldRoute = express.Router()
 const Emerald = require('../models/Emerald')
 
 // Add Emerald
-emeraldRoute.route('/emerald/add').post((req, res, next) => {
+emeraldRoute.route('/add').post((req, res) => {
   Emerald.create(req.body, (error, data) => {
     if (error) {
-      return next(error)
+      res.status(404).json({
+        msg: data
+      })
     } else {
       res.status(201).json({
         msg: data
@@ -19,10 +21,12 @@ emeraldRoute.route('/emerald/add').post((req, res, next) => {
 })
 
 // Get all emerald
-emeraldRoute.route('/emerald/list').get((req, res) => {
+emeraldRoute.route('/list').get((req, res) => {
   Emerald.find((error, data) => {
     if (error) {
-      return next(error)
+      res.status(404).json({
+        msg: data
+      })
     } else {
       res.status(200).json({
         msg: data
@@ -32,10 +36,12 @@ emeraldRoute.route('/emerald/list').get((req, res) => {
 })
 
 // Get single emerald
-emeraldRoute.route('/emerald/:id').get((req, res) => {
+emeraldRoute.route('/:id').get((req, res) => {
   Emerald.findById(req.params.id, (error, data) => {
     if (error) {
-      return next(error)
+      res.status(404).json({
+        msg: data
+      })
     } else {
       res.status(200).json({
         msg: data
@@ -45,7 +51,7 @@ emeraldRoute.route('/emerald/:id').get((req, res) => {
 })
 
 // Update emerald
-emeraldRoute.route('/emerald/edit/:id').put((req, res, next) => {
+emeraldRoute.route('/edit/:id').put((req, res, next) => {
   Emerald.findByIdAndUpdate(
     req.params.id,
     {
@@ -53,7 +59,9 @@ emeraldRoute.route('/emerald/edit/:id').put((req, res, next) => {
     },
     (error, data) => {
       if (error) {
-        return next(error)
+        res.status(404).json({
+          msg: data
+        })
       } else {
         res.status(200).json({
           msg: data
@@ -64,10 +72,12 @@ emeraldRoute.route('/emerald/edit/:id').put((req, res, next) => {
 })
 
 // Delete emerald
-emeraldRoute.route('/emerald/delete/:id').delete((req, res, next) => {
+emeraldRoute.route('/delete/:id').delete((req, res, next) => {
   Emerald.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
-      return next(error)
+      res.status(404).json({
+        msg: data
+      })
     } else {
       res.status(200).json({
         msg: data

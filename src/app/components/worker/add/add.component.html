@@ -1,1 +1,57 @@
-<p>add works!</p>
+<!-- Title group  -->
+<div class="title-group">
+  <h1 class="mat-h1">Añadir Trabajador</h1>
+  <mat-divider fxFlex="1 0"></mat-divider>
+</div>
+
+<!-- Form -->
+<div class="inner-wrapper">
+  <form [formGroup]="workerForm" (ngSubmit)="submitStudentForm()" #resetStudentForm="ngForm" novalidate>
+    <!-- Left block -->
+    <mat-card>
+      <div class="controlers-wrapper">
+
+        <!-- Name -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Nombre Completo del Trabajador" formControlName="fullName">
+          <mat-error *ngIf="handleError('fullName', 'required')">
+            Debes introducir el <strong>Nombre completo</strong> del Trabajador.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Gender -->
+      <div class="misc-bottom-padding">
+        <mat-label>Genero:</mat-label>
+        <mat-radio-group aria-label="Selecciona una opcion" formControlName="gender">
+          <mat-radio-button value="Male">Hombre</mat-radio-button>
+          <mat-radio-button value="Female">Mujer</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </mat-card>
+
+    <!-- Right block -->
+    <mat-card>
+      <div class="controlers-wrapper">
+        <!-- Date of birth -->
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento" (inputChange)="formatDate($event)" (dateChange)="formatDate($event)">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="handleError('dob', 'required')">
+            La fecha de nacimiento es necesaria.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </mat-card>
+
+    <!-- Submit & Reset -->
+    <mat-card>
+      <div class="full-wrapper button-wrapper">
+        <div class="button-wrapper">
+          <button mat-flat-button color="warn">Submit</button>
+        </div>
+      </div>
+    </mat-card>
+  </form>
+</div>

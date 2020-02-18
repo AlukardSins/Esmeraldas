@@ -6,10 +6,12 @@ const workerRoute = express.Router()
 const Worker = require('../models/Worker')
 
 // Add Worker
-workerRoute.route('/worker/add').post((req, res, next) => {
+workerRoute.route('/add').post((req, res) => {
   Worker.create(req.body, (error, data) => {
     if (error) {
-      return next(error)
+      res.status(404).json({
+        msg: data
+      })
     } else {
       res.status(201).json({
         msg: data
@@ -19,10 +21,12 @@ workerRoute.route('/worker/add').post((req, res, next) => {
 })
 
 // Get all worker
-workerRoute.route('/worker/list').get((req, res) => {
+workerRoute.route('/list').get((req, res) => {
   Worker.find((error, data) => {
     if (error) {
-      return next(error)
+      res.status(404).json({
+        msg: data
+      })
     } else {
       res.status(200).json({
         msg: data
@@ -32,10 +36,12 @@ workerRoute.route('/worker/list').get((req, res) => {
 })
 
 // Get single worker
-workerRoute.route('/worker/:id').get((req, res) => {
+workerRoute.route('/:id').get((req, res) => {
   Worker.findById(req.params.id, (error, data) => {
     if (error) {
-      return next(error)
+      res.status(404).json({
+        msg: data
+      })
     } else {
       res.status(200).json({
         msg: data
@@ -45,7 +51,7 @@ workerRoute.route('/worker/:id').get((req, res) => {
 })
 
 // Update worker
-workerRoute.route('/worker/edit/:id').put((req, res, next) => {
+workerRoute.route('/edit/:id').put((req, res) => {
   Worker.findByIdAndUpdate(
     req.params.id,
     {
@@ -53,7 +59,9 @@ workerRoute.route('/worker/edit/:id').put((req, res, next) => {
     },
     (error, data) => {
       if (error) {
-        return next(error)
+        res.status(404).json({
+          msg: data
+        })
       } else {
         res.status(200).json({
           msg: data
@@ -64,10 +72,12 @@ workerRoute.route('/worker/edit/:id').put((req, res, next) => {
 })
 
 // Delete worker
-workerRoute.route('/worker/delete/:id').delete((req, res, next) => {
+workerRoute.route('/delete/:id').delete((req, res) => {
   Worker.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
-      return next(error)
+      res.status(404).json({
+        msg: data
+      })
     } else {
       res.status(200).json({
         msg: data

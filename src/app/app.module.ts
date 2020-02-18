@@ -1,9 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
+
+import { EmeraldService } from './shared/api/emerald.service'
+import { WorkerService } from './shared/api/worker.service'
 
 //  Angular Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -34,9 +38,14 @@ import { ListEmeraldComponent } from './components/emerald/list/list.component'
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    EmeraldService,
+    WorkerService
+  ],
   bootstrap: [
     AppComponent
   ],
