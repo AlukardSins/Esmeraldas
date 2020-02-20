@@ -10,11 +10,11 @@ emeraldRoute.route('/add').post((req, res) => {
   Emerald.create(req.body, (error, data) => {
     if (error) {
       res.status(404).json({
-        msg: data
+        err: error
       })
     } else {
       res.status(201).json({
-        msg: data
+        data: data
       })
     }
   })
@@ -25,11 +25,11 @@ emeraldRoute.route('/list').get((req, res) => {
   Emerald.find((error, data) => {
     if (error) {
       res.status(404).json({
-        msg: data
+        err: error
       })
     } else {
       res.status(200).json({
-        msg: data
+        data: data
       })
     }
   })
@@ -40,11 +40,11 @@ emeraldRoute.route('/:id').get((req, res) => {
   Emerald.findById(req.params.id, (error, data) => {
     if (error) {
       res.status(404).json({
-        msg: data
+        err: error
       })
     } else {
       res.status(200).json({
-        msg: data
+        data: data
       })
     }
   })
@@ -60,11 +60,11 @@ emeraldRoute.route('/edit/:id').put((req, res, next) => {
     (error, data) => {
       if (error) {
         res.status(404).json({
-          msg: data
+          err: error
         })
       } else {
         res.status(200).json({
-          msg: data
+          data: data
         })
       }
     }
@@ -76,11 +76,11 @@ emeraldRoute.route('/delete/:id').delete((req, res, next) => {
   Emerald.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       res.status(404).json({
-        msg: data
+        err: error
       })
     } else {
       res.status(200).json({
-        msg: data
+        data: data
       })
     }
   })

@@ -1,7 +1,6 @@
 import { Router } from '@angular/router'
 import { Component, OnInit, ViewChild, NgZone } from '@angular/core'
 import { COMMA, ENTER } from '@angular/cdk/keycodes'
-//import { MatChipInputEvent } from '@angular/material/chips'
 import { EmeraldService } from '../../../shared/api/emerald.service'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { MatDatepickerInputEvent } from '@angular/material/datepicker'
@@ -20,14 +19,14 @@ export class AddEmeraldComponent implements OnInit {
   addOnBlur = true
 
   @ViewChild('chipList') chipList
-  @ViewChild('resetEsmeraldrForm') myNgForm
+  @ViewChild('resetEmeraldForm') myNgForm
 
   readonly separatorKeysCodes: number[] = [
     ENTER,
     COMMA
   ]
 
-  esmeraldForm: FormGroup
+  emeraldForm: FormGroup
 
   ngOnInit () {
     this.submitForm()
@@ -37,11 +36,11 @@ export class AddEmeraldComponent implements OnInit {
     public fb: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
-    private workerApi: EmeraldService
+    private emeraldApi: EmeraldService
   ) {}
 
   submitForm () {
-    this.esmeraldForm = this.fb.group({
+    this.emeraldForm = this.fb.group({
       description: [
         '',
         [
@@ -55,53 +54,38 @@ export class AddEmeraldComponent implements OnInit {
         ]
       ],
       weight: [
-        ''
+        '',
+        [
+          Validators.required
+        ]
       ],
       minedBy: [
         ''
       ],
       minedOn: [
-        ''
+        '',
+        [
+          Validators.required
+        ]
       ]
     })
   }
 
   formatDate (event: MatDatepickerInputEvent<Date>) {
-    this.esmeraldForm.get('dob').setValue(event.value, {
+    this.emeraldForm.get('dob').setValue(event.value, {
       onlyself: true
     })
   }
 
-  submitStudentForm () {
-    if (this.esmeraldForm.valid) {
-      this.workerApi.AddEmerald(this.esmeraldForm.value).subscribe((res) => {
-        this.ngZone.run(() => this.router.navigateByUrl('/esmerald/list'))
+  submitEmeraldForm () {
+    if (this.emeraldForm.valid) {
+      this.emeraldApi.AddEmerald(this.emeraldForm.value).subscribe((res) => {
+        this.ngZone.run(() => this.router.navigateByUrl('/emerald/list'))
       })
     }
   }
 
   public handleError = (controlName: string, errorName: string) => {
-    return this.esmeraldForm.controls[controlName].hasError(errorName)
+    return this.emeraldForm.controls[controlName].hasError(errorName)
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

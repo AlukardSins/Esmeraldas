@@ -21,7 +21,7 @@ export class WorkerService {
 
   // Get all workers
   GetWorkers () {
-    return this.http.get(`${this.endpoint}`)
+    return this.http.get(`${this.endpoint}/list`)
   }
 
   // Get worker

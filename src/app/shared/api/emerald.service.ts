@@ -21,7 +21,7 @@ export class EmeraldService {
 
   // Get all emeralds
   GetEmeralds () {
-    return this.http.get(`${this.endpoint}`)
+    return this.http.get(`${this.endpoint}/list`)
   }
 
   // Get emerald

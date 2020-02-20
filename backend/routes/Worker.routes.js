@@ -10,11 +10,11 @@ workerRoute.route('/add').post((req, res) => {
   Worker.create(req.body, (error, data) => {
     if (error) {
       res.status(404).json({
-        msg: data
+        err: error
       })
     } else {
       res.status(201).json({
-        msg: data
+        data: data
       })
     }
   })
@@ -25,11 +25,11 @@ workerRoute.route('/list').get((req, res) => {
   Worker.find((error, data) => {
     if (error) {
       res.status(404).json({
-        msg: data
+        err: error
       })
     } else {
       res.status(200).json({
-        msg: data
+        data: data
       })
     }
   })
@@ -40,11 +40,11 @@ workerRoute.route('/:id').get((req, res) => {
   Worker.findById(req.params.id, (error, data) => {
     if (error) {
       res.status(404).json({
-        msg: data
+        err: error
       })
     } else {
       res.status(200).json({
-        msg: data
+        data: data
       })
     }
   })
@@ -60,11 +60,11 @@ workerRoute.route('/edit/:id').put((req, res) => {
     (error, data) => {
       if (error) {
         res.status(404).json({
-          msg: data
+          err: error
         })
       } else {
         res.status(200).json({
-          msg: data
+          data: data
         })
       }
     }
@@ -76,11 +76,11 @@ workerRoute.route('/delete/:id').delete((req, res) => {
   Worker.findByIdAndRemove(req.params.id, (error, data) => {
     if (error) {
       res.status(404).json({
-        msg: data
+        err: error
       })
     } else {
       res.status(200).json({
-        msg: data
+        data: data
       })
     }
   })

@@ -6,7 +6,7 @@
 
 <!-- Form -->
 <div class="inner-wrapper">
-  <form [formGroup]="workerForm" (ngSubmit)="submitStudentForm()" #resetStudentForm="ngForm" novalidate>
+  <form [formGroup]="workerForm" (ngSubmit)="submitWorkerForm()" #resetWorkerForm="ngForm" novalidate>
     <!-- Left block -->
     <mat-card>
       <div class="controlers-wrapper">
@@ -49,7 +49,7 @@
     <mat-card>
       <div class="full-wrapper button-wrapper">
         <div class="button-wrapper">
-          <button mat-flat-button color="warn">Submit</button>
+          <button mat-flat-button color="warn">Enviar</button>
         </div>
       </div>
     </mat-card>

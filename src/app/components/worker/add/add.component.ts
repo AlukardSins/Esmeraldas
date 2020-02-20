@@ -1,7 +1,6 @@
 import { Router } from '@angular/router'
 import { Component, OnInit, ViewChild, NgZone } from '@angular/core'
 import { COMMA, ENTER } from '@angular/cdk/keycodes'
-import { MatChipInputEvent } from '@angular/material/chips'
 import { WorkerService } from '../../../shared/api/worker.service'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { MatDatepickerInputEvent } from '@angular/material/datepicker'
@@ -66,7 +65,7 @@ export class AddWorkerComponent implements OnInit {
     })
   }
 
-  submitStudentForm () {
+  submitWorkerForm () {
     if (this.workerForm.valid) {
       this.workerApi.AddWorker(this.workerForm.value).subscribe((res) => {
         this.ngZone.run(() => this.router.navigateByUrl('/worker/list'))

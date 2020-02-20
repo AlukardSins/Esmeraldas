@@ -7,7 +7,7 @@
     "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "AlukardSins",
+  "author": "AlukardSins, gilbertrendon",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -22,9 +22,7 @@
     "type": "git",
     "url": "git+https://github.com/AlukardSins/Esmeraldas.git"
   },
-  "keywords": [
-    "gilbertDaniel"
-  ],
+  "keywords": [],
   "bugs": {
     "url": "https://github.com/AlukardSins/Esmeraldas/issues"
   },
